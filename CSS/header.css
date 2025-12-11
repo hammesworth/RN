@@ -43,17 +43,32 @@
         color: #ffffff; 
     }
 
-    @media (max-width: 900px) {
-        header#main-header {
-            flex-direction: column; 
-            gap: 20px;
-            padding: 20px;
-            text-align: center; 
-        }
-
-        header#main-header nav {
-            width: 100%;
-            flex-wrap: wrap; 
-            justify-content: center; 
-        }
+@media (max-width: 900px) {
+    header#main-header {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+        padding: 20px;
     }
+
+    header#main-header nav {
+        display: flex;
+        flex-wrap: nowrap;      
+        overflow-x: auto;       
+        -webkit-overflow-scrolling: touch; 
+        width: 100%;
+        gap: 8px;
+        scrollbar-width: thin;  
+    }
+
+    header#main-header nav a {
+        flex: 0 0 auto;         
+        white-space: nowrap; 
+    }
+}
+
+@media (max-width: 450px) {
+    header#main-header nav {
+        padding-bottom: 6px; 
+    }
+}
