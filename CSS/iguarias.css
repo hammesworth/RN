@@ -7,16 +7,11 @@
     #ebfff3);
     background-size: 300% 300%;
     padding: 24px;
-<<<<<<< HEAD
     border-radius: 32px;
     margin: 0;
     margin-bottom: 20px;
 
     animation: bg-gradient 12s ease-in-out infinite;
-=======
-    border-radius: 8px;
-    margin: 0;
->>>>>>> e5c3a4c93b09e226242416ed563888c6688f9676
 }
 
 #iguarias .ig-section-title {
