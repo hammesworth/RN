@@ -8,7 +8,10 @@
     background-size: 300% 300%;
     padding: 24px;
     margin: 0;
+<<<<<<< HEAD
     margin-bottom: 20px;
+=======
+>>>>>>> e5c3a4c93b09e226242416ed563888c6688f9676
     border-radius: 8px;
     animation: bg-gradient 12s ease-in-out infinite;
 }
