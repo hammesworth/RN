@@ -1,10 +1,18 @@
 #indice {
         font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-        background-color: #f9fafb;
+        background: linear-gradient(
+        120deg,
+        #ebfff3,
+        #e6fff1,
+        #ebfff3);
+        background-size: 300% 300%;
         padding: 40px;
-        margin: 32px;
+        margin-bottom: 20px;
         border-radius: 32px;
         border: 1px solid #eee;
+
+        animation:
+        bg-gradient 12s ease-in-out infinite;
     }
 
 
@@ -52,3 +60,9 @@
         color: #004d40; 
         border-bottom: 1px solid #004d40; 
     }
+
+    @keyframes bg-gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}

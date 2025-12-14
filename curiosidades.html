@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="./CSS/header.css">
     <link rel="stylesheet" href="./CSS/curiosidades.css">
     
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.7.77/Tone.js"></script>
+
 </head>
 <body>
 
@@ -82,6 +84,18 @@
         <p class="cr-final-text">Um estado que surpreende em cada detalhe.</p>
 
     </main>
+
+    <footer>
+    <button id="audio-toggle" class="audio-control muted">
+    <span class="icon-sound-on">🔊</span>
+    <span class="icon-sound-off">🔇</span>
+    </button>
+
+    <audio id="bg-music" loop preload="auto"></audio> 
+    </footer>
+
+    <script src="musica.js"></script>
+    <script src="sons.js"></script>
 
 </body>
 </html>

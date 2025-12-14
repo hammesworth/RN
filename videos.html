@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="./CSS/header.css">
     <link rel="stylesheet" href="./CSS/videos.css">
     
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.7.77/Tone.js"></script>
+
 </head>
 <body>
 
@@ -44,7 +46,7 @@
 
                 <div class="video-item">
                     <div class="video-iframe-container">
-                        <iframe src="https://www.youtube.com/embed/U7_5wY1n-oM?si=GzKx1oZ4r-Q9fR1I" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    <iframe width="1300" height="731" src="https://www.youtube.com/embed/d0b_8qZEZfA" title="MARACAJAÚ 2025: um dos melhores passeios em Natal com mergulho, quadriciclo, praia, lagoa, e dunas" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                     </div>
                     <div class="video-text">
                         <h4>Mergulho em Maracajaú</h4>
@@ -54,7 +56,7 @@
 
                 <div class="video-item">
                     <div class="video-iframe-container">
-                        <iframe src="https://www.youtube.com/embed/n4sO-dWwskc?si=X-Lw3R-E6kO-n1gP" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    <iframe width="1300" height="731" src="https://www.youtube.com/embed/x0GqKUzmF3o" title="PIPA RN 2024: ROTEIRO 4 DIAS COM PREÇOS | O QUE FAZER EM PIPA E COMO ECONOMIZAR  | VALE A PENA?" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                     </div>
                     <div class="video-text">
                         <h4>As Falésias da Pipa</h4>
@@ -64,7 +66,7 @@
 
                 <div class="video-item">
                     <div class="video-iframe-container">
-                        <iframe src="https://www.youtube.com/embed/5yDQXkE8qf8?si=Z6Jk9e-Q-q-w-I-O" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    <iframe width="1300" height="731" src="https://www.youtube.com/embed/gpAJHFkdT3Y" title="Ginga com tapioca" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                     </div>
                     <div class="video-text">
                         <h4>Sabores: Ginga com Tapioca</h4>
@@ -74,8 +76,19 @@
 
             </div>
         </section>
-        
+    
     </main>
+
+    <footer>
+    <button id="audio-toggle" class="audio-control muted">
+    <span class="icon-sound-on">🔊</span>
+    <span class="icon-sound-off">🔇</span>
+    </button>
+
+    <audio id="bg-music" loop preload="auto"></audio>
+    </footer>
+    <script src="musica.js"></script>
+    <script src="sons.js"></script>
 
 </body>
 </html>

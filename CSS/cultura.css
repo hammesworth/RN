@@ -1,9 +1,16 @@
 #cultura-potiguar {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-    background-color: #ffffff;
+    background: linear-gradient(
+    120deg,
+    #ebfff3,
+    #e6fff1,
+    #ebfff3);
+    background-size: 300% 300%;
     padding: 24px;
-    margin: 32px;
-    border-radius: 8px;
+    margin: 0;
+    margin-bottom: 20px;
+    border-radius: 32px;
+    animation: bg-gradient 12s ease-in-out infinite;
 }
 
 #cultura-potiguar .cp-section-title {
@@ -145,4 +152,10 @@
     #cultura-potiguar .cp-item-texto p {
         font-size: 1.125rem; 
     }
+}
+
+@keyframes bg-gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }

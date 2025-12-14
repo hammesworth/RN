@@ -30,7 +30,7 @@ body {
 }
 
 .gallery-item {
-    background-color: lightgray;
+    background-color: rgb(250, 233, 255);
     border-radius: 12px;
     overflow: hidden;
     box-shadow: 0 10px 20px rgba(0,0,0,0.3);
