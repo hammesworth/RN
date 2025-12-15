@@ -4,43 +4,48 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (!audioPlayer || !toggleBtn) return;
 
-    /* CONFIG */
+    /* ================= CONFIG ================= */
     const fadeDuration = 800;
     const maxVolume    = 0.3;
 
-    /* PLAYLIST */
+    /* ================= PLAYLIST ================= */
     const playlist = {
-        '/': 'OST/Samba.mp3',  
         '/index.html': 'OST/Samba.mp3',
         '/curiosidades.html': 'OST/Ficar.mp3',
-        '/referencias.html': 'OST/Feiticeira.m4a',
-        'default': 'OST/Samba.mp3' 
+        '/referencias.html': 'OST/Feiticeira.m4a'
     };
 
-    /* PATH NORMALIZADO */
-    const path = location.pathname.replace(/\/$/, '') || '/';
-    const source = playlist[path] || playlist.default;
+    /* ================= PATH NORMALIZADO ================= */
+    let path = location.pathname;
 
-    let isMuted        = localStorage.getItem('site_muted') === 'true';
-    let hasInteracted  = localStorage.getItem('site_interacted') === 'true';
-
-    /* NÃO RECARREGA SE FOR O MESMO ARQUIVO */
-    if (!audioPlayer.src || !audioPlayer.src.includes(source)) {
-        audioPlayer.src = source;
+    if (path === '/') {
+        path = '/index.html';
     }
 
+    const source = playlist[path];
+
+    if (!source) return;
+
+    /* ================= ESTADO ================= */
+    let isMuted       = localStorage.getItem('site_muted') === 'true';
+    let hasInteracted = localStorage.getItem('site_interacted') === 'true';
+
+    audioPlayer.src    = source;
     audioPlayer.volume = 0;
     audioPlayer.muted  = isMuted;
 
     updateMuteUI();
 
+    /* ================= AUTOPLAY CONTROLADO ================= */
     audioPlayer.addEventListener('loadedmetadata', () => {
+        audioPlayer.currentTime = 0;
+
         if (!isMuted && hasInteracted) {
             audioPlayer.play().then(fadeIn).catch(() => {});
         }
     });
 
-    /* BOTÃO MUTE */
+    /* ================= BOTÃO MUTE ================= */
     toggleBtn.addEventListener('click', () => {
         hasInteracted = true;
         localStorage.setItem('site_interacted', 'true');
@@ -49,9 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
         localStorage.setItem('site_muted', isMuted);
 
         if (isMuted) {
-            fadeOut(() => {
-                audioPlayer.muted = true;
-            });
+            fadeOut(() => audioPlayer.muted = true);
         } else {
             audioPlayer.muted = false;
             audioPlayer.play().then(fadeIn).catch(() => {});
@@ -60,7 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
         updateMuteUI();
     });
 
-    /* LINKS COM FADE */
+    /* ================= LINKS COM FADE ================= */
     document.querySelectorAll('a').forEach(link => {
         link.addEventListener('click', e => {
             const href = link.getAttribute('href');
@@ -75,13 +78,12 @@ document.addEventListener('DOMContentLoaded', () => {
             e.preventDefault();
 
             fadeOut(() => {
-                localStorage.removeItem('music_time'); 
                 location.href = href;
             });
         });
     });
 
-    /* ===== FUNÇÕES ===== */
+    /* ================= FUNÇÕES ================= */
 
     function updateMuteUI() {
         toggleBtn.classList.toggle('muted', isMuted);
