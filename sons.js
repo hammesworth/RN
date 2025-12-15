@@ -22,8 +22,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    const hoverSelectors = 'a, img, .control-btn, .module-card, #search-bar, input[type="range"], .page-content header nav a, .settings-btn';
-    const clickSelectors = 'a, img, .control-btn, .module-card, .page-content header nav a, .settings-btn';
+    const hoverSelectors = 'a, img, label';
+    const clickSelectors = 'a, img, label';
 
     document.body.addEventListener('mouseenter', (event) => {
        

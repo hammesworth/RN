@@ -2,6 +2,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const quizForm = document.getElementById('quiz-form');
     const resultsContainer = document.getElementById('quiz-results');
 
+    const audioSuccess = new Audio('OST/Vitoria.mp3');
+    const audioFail = new Audio('OST/Dumb.mp3');
+
     const correctAnswers = {
         q1: 'c',
         q2: 'b',
@@ -31,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const userAnswer = formData.get(question);
 
             const questionElement = document.querySelector(`input[name="${question}"]`)
-                .closest('.quiz-question');
+                ?.closest('.quiz-question');
 
             if (questionElement) {
                 const labels = questionElement.querySelectorAll('label.option-item');
@@ -57,10 +60,17 @@ document.addEventListener('DOMContentLoaded', () => {
         resultsContainer.style.display = 'block';
         resultsContainer.textContent = `Você acertou ${score} de ${totalQuestions} perguntas!`;
 
-        if (score >= 7) {
+        audioSuccess.pause();
+        audioFail.pause();
+        audioSuccess.currentTime = 0;
+        audioFail.currentTime = 0;
+
+        if (score >= 6) {
             resultsContainer.className = 'success';
+            audioSuccess.play();
         } else {
             resultsContainer.className = 'fail';
+            audioFail.play();
         }
     });
 });

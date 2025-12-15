@@ -12,7 +12,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const playlist = {
         '/': 'OST/Samba.mp3',
         '/index.html': 'OST/Samba.mp3',
-        '/galeria': 'OST/Samba.mp3',
+        '/curiosidades.html': 'OST/Ficar.mp3',
+        '/referencias.html': 'OST/Feiticeira.m4a',
         'default': 'OST/Samba.mp3'
     };
 
@@ -23,7 +24,6 @@ document.addEventListener('DOMContentLoaded', () => {
     /* ESTADO PERSISTENTE */
     let isMuted        = localStorage.getItem('site_muted') === 'true';
     let hasInteracted  = localStorage.getItem('site_interacted') === 'true';
-    let savedTime      = parseFloat(localStorage.getItem('music_time'));
 
     /* NÃO RECARREGA SE FOR O MESMO ARQUIVO */
     if (!audioPlayer.src || !audioPlayer.src.includes(source)) {
@@ -37,10 +37,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     /* RESTAURA TEMPO + PLAY */
     audioPlayer.addEventListener('loadedmetadata', () => {
-        if (!isNaN(savedTime)) {
-            audioPlayer.currentTime = savedTime;
-        }
-
         if (!isMuted && hasInteracted) {
             audioPlayer.play().then(fadeIn).catch(() => {});
         }
@@ -81,7 +77,7 @@ document.addEventListener('DOMContentLoaded', () => {
             e.preventDefault();
 
             fadeOut(() => {
-                localStorage.setItem('music_time', audioPlayer.currentTime);
+                localStorage.removeItem('music_time');
                 location.href = href;
             });
         });

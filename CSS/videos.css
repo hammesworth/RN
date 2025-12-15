@@ -104,6 +104,10 @@
 }
 
 @media (max-width: 900px) {
+
+    #video-gallery{
+        margin-top: -15%;
+    }
     #video-gallery .video-screen {
         height: auto;
         min-height: 100vh;
