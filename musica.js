@@ -10,20 +10,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
     /* ================= PLAYLIST ================= */
     const playlist = {
-        '/index.html': 'OST/Samba.mp3',
-        '/curiosidades.html': 'OST/Ficar.mp3',
-        '/referencias.html': 'OST/Feiticeira.m4a'
+        'index.html': 'OST/Samba.mp3',
+        'curiosidades.html': 'OST/Ficar.mp3',
+        'referencias.html': 'OST/Feiticeira.m4a'
     };
 
-    /* ================= PATH NORMALIZADO ================= */
-    let path = location.pathname;
+    /* ================= PAGE NAME ================= */
+    const page = location.pathname.split('/').pop() || 'index.html';
+    const source = playlist[page];
 
-    if (path === '/') {
-        path = '/index.html';
-    }
-
-    const source = playlist[path];
-
+    /* Em páginas sem música, bem, não faz merda nenhuna */
     if (!source) return;
 
     /* ================= ESTADO ================= */
